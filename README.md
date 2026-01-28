@@ -1,4 +1,4 @@
-# Virginia AI BFF（AXA 智能保險顧問）
+# Virginia AI Policy Chat（AXA 智能保險顧問）
 
 一個以 **BFF（Backend-for-Frontend）模式**接駁 Google Gemini 的 Web App。
 
