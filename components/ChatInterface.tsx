@@ -69,7 +69,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ files, messages, isGenera
           </h1>
           <p className="text-sm text-gray-500 mt-1 font-medium">
              <span className={files.length > 0 ? "text-green-600 font-bold" : "text-gray-400"}>
-               {files.length > 0 ? `已就緒 (${files.length} 份知識庫文件)` : "請先在側邊欄上傳知識庫"}
+               {files.length > 0 ? `已就緒 (${files.length} 份知識庫文件)` : "請先於側邊欄上傳知識庫；本模型較適合簡單文件讀取/解釋，不適合複雜推理或大量內容處理"}
              </span>
           </p>
         </div>

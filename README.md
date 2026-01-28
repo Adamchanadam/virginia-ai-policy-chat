@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # Virginia AI BFF（AXA 智能保險顧問）
 
 一個以 **BFF（Backend-for-Frontend）模式**接駁 Google Gemini 的 Web App。
@@ -9,7 +5,22 @@
 - **用途**：上傳 AXA 保險條款文件（PDF/MD/TXT）作為「知識庫」，再用對話方式查詢。
 - **回答規則（重點）**：系統指令要求模型 **只可根據已上傳文件回答**，並在每次回答末尾輸出 `---SOURCES---` 來源清單（前端會解析並展示）。
 
-線上示例（如仍可用）：https://virginia-ai-bff-686112121757.europe-west1.run.app/
+## 使用的 LLM / Model（及設定位置）
+
+- **LLM 供應商**：Google Gemini
+- **Model 名稱**：`gemini-3-flash-preview`
+- **設定檔案**：
+  - `constants.ts`：
+    - `GEMINI_MODEL`（模型名稱）
+    - `SYSTEM_INSTRUCTION`（主要 system prompt / 回答規則）
+
+線上示例：https://virginia-ai-bff-686112121757.europe-west1.run.app/
+
+![login_screen_01](login_screen_01.png)
+
+![login_screen_02](login_screen_02.png)
+
+![login_screen_03](login_screen_03.png)
 
 ## 功能概覽
 
