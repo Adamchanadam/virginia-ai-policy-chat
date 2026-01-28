@@ -13,7 +13,7 @@
 
 ## 功能概覽
 
-- **登入頁**：簡單 passcode 登入（預設 `000000`，來源：`constants.ts` 的 `APP_PASSWORD`）
+- **登入頁**：簡單 passcode 登入
 - **知識庫文件**：支援上傳 PDF / Markdown / TXT
 - **對話**：支援多個對話 thread、刪除對話、顯示 token 用量、顯示引用來源（citations）
 - **本地儲存**：文件與對話紀錄存於瀏覽器 `IndexedDB`（無後端資料庫）
