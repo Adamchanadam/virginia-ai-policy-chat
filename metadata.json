@@ -1,0 +1,5 @@
+{
+  "name": "(BFF模式) Gemini PDF/MD/TXT RAG Chatbot",
+  "description": "A secure, password-protected AI chatbot that allows users to upload PDF, Markdown, and Text documents as a knowledge base and ask questions using the Gemini 2.5 Flash model. Features markdown rendering, strict verbatim quoting, and copy-to-clipboard functionality.",
+  "requestFramePermissions": []
+}
