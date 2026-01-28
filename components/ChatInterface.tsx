@@ -19,6 +19,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ files, messages, isGenera
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  const INPUT_MIN_HEIGHT_PX = 84;
+  const INPUT_MAX_HEIGHT_PX = 240;
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -26,6 +29,20 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ files, messages, isGenera
   useEffect(() => {
     scrollToBottom();
   }, [messages, isGenerating]);
+
+  const adjustInputHeight = () => {
+    const el = inputRef.current;
+    if (!el) return;
+
+    el.style.height = 'auto';
+    const next = Math.min(el.scrollHeight, INPUT_MAX_HEIGHT_PX);
+    el.style.height = `${Math.max(next, INPUT_MIN_HEIGHT_PX)}px`;
+    el.style.overflowY = el.scrollHeight > INPUT_MAX_HEIGHT_PX ? 'auto' : 'hidden';
+  };
+
+  useEffect(() => {
+    requestAnimationFrame(adjustInputHeight);
+  }, [inputValue]);
 
   const handleSend = () => {
     if (!inputValue.trim() || isGenerating) return;
@@ -204,9 +221,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ files, messages, isGenera
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={files.length === 0 ? "⚠️ 請先在左側上傳知識庫文件 (PDF/MD/TXT)" : "請輸入關於保險條款的問題..."}
-            className="w-full bg-transparent border-none focus:ring-0 resize-none max-h-40 min-h-[60px] py-4 px-4 text-gray-800 text-lg placeholder-gray-400 scrollbar-hide leading-relaxed"
-            rows={1}
-            style={{ height: 'auto', minHeight: '60px' }}
+            className="w-full bg-transparent border-none focus:ring-0 resize-none py-4 px-4 text-gray-800 text-lg placeholder-gray-400 scrollbar-hide leading-relaxed"
+            rows={2}
+            style={{ height: 'auto', minHeight: `${INPUT_MIN_HEIGHT_PX}px`, maxHeight: `${INPUT_MAX_HEIGHT_PX}px`, overflowY: 'hidden' }}
           />
           <button
             onClick={handleSend}
