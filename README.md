@@ -43,6 +43,9 @@
 
 此專案後端會於 `server.js` 讀取 `process.env.API_KEY`。
 
+- **本地開發**：可於專案根目錄建立 `.env`（由 `dotenv` 載入）。
+- **部署到 Cloud Run / 其他平台**：請在平台設定環境變數 `API_KEY`（不要寫死在 image 或 repo）。
+
 1. 在專案根目錄建立 `.env`
 2. 加入以下內容：
 
@@ -100,7 +103,7 @@ npm run start
 2. `npm run build` 產生 `dist/`
 3. 用 `node server.js` 啟動（Cloud Run 預設 `PORT=8080`）
 
-部署時請以平台方式注入環境變數 `API_KEY`，不要寫死在 image 或 repo。
+部署到 Cloud Run / 其他平台時，請以平台方式注入環境變數 `API_KEY`，不要寫死在 image 或 repo。
 
 ## 使用說明（基本流程）
 
